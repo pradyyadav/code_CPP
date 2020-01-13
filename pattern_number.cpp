@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-    int n,a=1;
+    void n,a=1;
     cout<<"Enter number of line : ";
     cin>>n;
     for(int i=1;i<=n;i++)

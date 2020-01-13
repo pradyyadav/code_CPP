@@ -13,7 +13,7 @@ int main()
 {
 	int n;
 	int a=0,b=0,c=0,d=0;
-	
+	//ytyryut
 	cout<<"Enter the number of employees in the firm : ";
 	cin>>n;
 	cout<<"\n";

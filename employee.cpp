@@ -28,7 +28,7 @@ int main()
 		cout<<(ob[i].name)<<" : ";
 		cin>>(ob[i].age);
 		cout<<"\n";
-		cout<<"\nEnter Employee ID : ";
+		cout<<"\nEnter "<<(ob[i].name)<<"'s ID : " ;
 		cin>>(ob[i].Id);
 		cout<<"\nEnter Salary : ";
 		cin>>(ob[i].sal);

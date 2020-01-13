@@ -21,18 +21,18 @@ int main()
 	for(int i=0;i<n;i++)
 	{
 
-		cout<<"Enter Employee Name : ";
+		cout<<"Enter Employee Name : "; //name
 		cin>>(ob[i].name);
 		
-		cout<<"\nEnter age of : ";
+		cout<<"\nEnter age of : "; //age
 		cout<<(ob[i].name)<<" : ";
 		cin>>(ob[i].age);
 		cout<<"\n";
-		cout<<"\nEnter "<<(ob[i].name)<<"'s ID : " ;
+		cout<<"\nEnter "<<(ob[i].name)<<"'s ID : " ;//ID
 		cin>>(ob[i].Id);
-		cout<<"\nEnter Salary : ";
+		cout<<"\nEnter Salary : "; //salary
 		cin>>(ob[i].sal);
-		cout<<"\nEnter designation grade(A,B,C,D) : ";
+		cout<<"\nEnter designation grade(A,B,C,D) : "; //designation
 		cin>>(ob[i].grade);
 		cout<<"\n";
 }

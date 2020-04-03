@@ -74,7 +74,7 @@ void delete_node(int n)
 		temp1 = temp1 -> next;
 	temp = temp1 -> next;
 	temp1 -> next = temp -> next;
-	free(temp);
+	free(temp);     //can also use delete(temp)
 	cout<<"List : ";
 		print();
 	cout<<"You want to delete more?(Y/N) : ";

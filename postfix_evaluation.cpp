@@ -1,75 +1,83 @@
 #include<iostream>
-#include<stack>
 #include<string>
+#include<stack>
+#include<cmath>
 
 using namespace std;
 
-int EvaluatePostfix(string expression);
-int PerformOperation(char operation, int operand1, int operand2);
-bool IsOperator(char C);
-bool IsNumericDigit(char C);
+int postfixEvaluation(string expression);
+bool isOperand(char C);
+bool isOperator(char C);
+long long int evaluation(char C,int A,int B);
 
-int main() 
+
+int main()
 {
-	string expression; 
-	cout<<"Enter Postfix Expression : ";
-	getline(cin,expression);
-	int result = EvaluatePostfix(expression);
-	cout<<"Output = "<<result<<"\n";
+    string exp;
+    cout<<"Enter postfix expression(use '$' for exponent) : ";
+    getline(cin,exp);
+    cout<<"Result : "<<postfixEvaluation(exp)<<"\n";
 }
 
-int EvaluatePostfix(string expression)
+
+int postfixEvaluation(string expression)
 {
-	stack<int> S;
+    stack<char> S;
 
-	for(int i = 0;i< expression.length();i++) 
-	{
-		if(expression[i] == ' ' || expression[i] == ',') continue; 
-		else if(IsOperator(expression[i])) {
-			int operand2 = S.top(); 
-			S.pop();
-			int operand1 = S.top(); 
-			S.pop();
-			int result = PerformOperation(expression[i], operand1, operand2);
-			S.push(result);
-		}
-		else if(IsNumericDigit(expression[i]))
-		{
-			int operand = 0; 
-			while(i<expression.length() && IsNumericDigit(expression[i])) 
-			{
-				operand = (operand*10) + (expression[i] - '0'); 
-				i++;
-			}
-			i--;
+    for(int i=0;i<expression.length();i++)
+    {
+        if(isOperand(expression[i]))
+        {
+            int operand = 0;
+            while(i<expression.length() && isOperand(expression[i]))
+            {
+                operand = operand*10 + int(expression[i]) - 48;
+                i++;
+            }
+            i--;
+            S.push(operand);
 
-			S.push(operand);
-		}
-	}
-	return S.top();
+        }
+        else if(expression[i] == ' ' || expression[i] == ',')
+        {
+            continue;
+        }
+        else if(isOperator(expression[i]))
+        {
+            int operand_2 = S.top();
+            S.pop();
+            int operand_1 = S.top();
+            S.pop();
+            S.push(evaluation(expression[i],operand_1,operand_2));
+        }
+    }
+    return S.top();
 }
 
-bool IsNumericDigit(char C) 
+bool isOperand(char C)
 {
-	if(C >= '0' && C <= '9') return true;
-	return false;
+    if(int(C) >= 48 && int (C) <= 57)
+        return true;
+    return false;
 }
 
-bool IsOperator(char C)
+bool isOperator(char C)
 {
-	if(C == '+' || C == '-' || C == '*' || C == '/')
-		return true;
-
-	return false;
+    if(C == '+' || C == '-' || C == '*' || C == '/' || C == '$')
+        return true;
+    return false;
 }
 
-int PerformOperation(char operation, int operand1, int operand2)
+long long int evaluation(char C,int A,int B)
 {
-	if(operation == '+') return operand1 +operand2;
-	else if(operation == '-') return operand1 - operand2;
-	else if(operation == '*') return operand1 * operand2;
-	else if(operation == '/') return operand1 / operand2;
-
-	else cout<<"Unexpected Error \n";
-	return -1; 
+    if(C == '+')
+        return A+B;
+    else if(C == '-')
+        return A-B;
+    else if(C == '*')
+        return A*B;
+    else if(C == '/')
+        return A/B;
+    else if(C == '$')
+        return pow(A,B);
 }

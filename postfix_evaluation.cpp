@@ -1,3 +1,8 @@
+/* The program gives wrong answers for particular set of inputs
+    if you find any discrepancy let me know it */
+
+
+
 #include<iostream>
 #include<string>
 #include<stack>

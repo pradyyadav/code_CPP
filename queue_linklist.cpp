@@ -12,7 +12,7 @@ struct Node
 };
 
 Node *front = NULL;
-Node *rear = NULL;
+Node *rear = NULL ;
 
 
 int main()

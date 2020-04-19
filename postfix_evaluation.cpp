@@ -61,7 +61,7 @@ int postfixEvaluation(string expression)
 
 bool isOperand(char C)
 {
-    if(int(C) >= 48 && int (C) <= 57)
+    if(int(C) >= 48 && int(C) <= 57)
         return true;
     return false;
 }

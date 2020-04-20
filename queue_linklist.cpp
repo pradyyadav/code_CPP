@@ -40,7 +40,7 @@ int main()
 }
 
 
-void enqueue(int val)
+void enqueue(int val) //adds the element
 {
   Node *temp = NULL;
   temp = new Node();
@@ -55,7 +55,7 @@ void enqueue(int val)
   rear = temp;
 }
 
-void dequeue()
+void dequeue()   //removes the element
 {
   Node *temp;
   temp = front;

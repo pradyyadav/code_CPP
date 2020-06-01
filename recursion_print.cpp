@@ -54,7 +54,7 @@ void print(Node *p)
 	if(p == NULL)
 		return;
 	cout<<p -> data<<" ";
-	print(p -> next);
+	print(p -> next); //calling function inside itself
 	
 }
 

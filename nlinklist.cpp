@@ -49,7 +49,7 @@ void insert(int val,int n)
 	temp1 = head;
 	for(int i=0;i<n-2;i++)
 		temp1 = temp1 -> next;
-	temp -> next = temp1 -> next;
+	temp -> next = temp1 -> next; // Adds node at nth position of the list
 	temp1 -> next = temp;	 
 
 }
